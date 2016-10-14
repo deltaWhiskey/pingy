@@ -3,7 +3,7 @@
 targets="192.168.0.1 8.8.8.8"
 logging_minute=`date +%M`
 logging_minute_human=`date +"%Y-%m-%d %H:%M"`
-logging_fails=""
+logging_fails="?"
 
 ################################
 # Functions
@@ -48,7 +48,7 @@ generateReport ()
 		
 		logging_minute=${current_minute}
 		logging_minute_human=`date +"%Y-%m-%d %H:%M"`
-		logging_fails=""
+		logging_fails="?"
 	fi
 }
 
