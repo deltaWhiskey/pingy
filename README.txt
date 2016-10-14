@@ -1,8 +1,16 @@
 PINGY
 
-Pingy is a script for monitoring network reliability. It was originally written
-to help isolate a network problem; was the problem within my local network, or
-was the problem in my ISP's network?
+Pingy is a script for isolating network problems. It it a tool for identifying
+what part of a network is failing (connection to modem vs connection to ISP
+vs problem somewhere on the internet.)
+
+It was originally written to figure out whether an intermittent network
+problem was between me and my modem, or between my modem and my ISP.
+
+It works by pinging a list of IP addresses, and displaying periodic summaries
+of whether the connection to that IP address is working.
+
+
 
 To use this:
 
