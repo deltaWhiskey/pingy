@@ -1,6 +1,8 @@
 #!/bin/bash
 
-targets="192.168.0.1 8.8.8.8"
+targets=""
+config_file="pingy.conf"
+base_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 logging_minute=`date +%M`
 logging_minute_human=`date +"%Y-%m-%d %H:%M"`
 logging_fails="?"
@@ -52,11 +54,25 @@ generateReport ()
 	fi
 }
 
+# Load config file. Set global variable ${targets}
+loadConfig ()
+{
+	local config_path="${base_dir}/${config_file}"
+	echo "Loading config file: ${config_path}"
+	if [ ! -f ${config_path} ]
+	then
+		echo "Could read load config file ${config_path}"
+		exit 1
+	fi
+	targets=`cat ${config_path}`
+}
+
 #################################
 # Main Loop
 
-echo "Pinging ${targets}"
-echo "When a ping fails, will print summary lines up to once a minute with fail counts."
+loadConfig
+echo Pinging ${targets}
+echo When a ping fails, will print summary lines up to once a minute with fail counts.
 
 while [ 1 ]
 do

@@ -14,8 +14,8 @@ of whether the connection to that IP address is working.
 
 To use this:
 
-1) edit the "targets" variable at the top of pingy.sh to indicate what
-   IP addresses you want to monitor your connectivity to.
+1) edit the pingy.conf file to include IP addresses that you want to monitor.
+   IP addresses should be seperated by a space like "127.0.0.1 8.8.8.8"
 2) Run the script with something like "bash pingy.sh"
 
 At the end of every minute this script is running, if there were missed pings,
@@ -24,6 +24,6 @@ respond. The line includes time stamp, IP address, and number of missed pings.
 
 To log the output to a file, try something like:
 
-bash pingy.sh | tee pingy.log
+bash pingy.sh | tee -a pingy.log
 
 To stop pingy, hit control-c.
